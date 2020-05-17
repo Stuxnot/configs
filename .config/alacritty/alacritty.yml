@@ -1,0 +1,154 @@
+#        __                       __ 
+#   ___ / /___ ____ __ ___  ___  / /_
+#  (_-</ __/ // /\ \ // _ \/ _ \/ __/
+# /___/\__/\_,_//_\_\/_//_/\___/\__/ 
+# https://github.com/stuxnot                                   
+
+env:
+  TERM: xterm-256color
+
+window:
+  # Window dimensions (changes require restart)
+  dimensions:
+    columns: 0
+    lines: 0
+  # Window padding (changes require restart)
+  padding:
+    x: 5
+    y: 5
+
+  # Don't spread additional padding 
+  dynamic_padding: false
+
+  # Window decorations
+  decorations: none
+
+  startup_mode: Windowed
+
+  # GTK theme variant (Linux only)
+  gtk_theme_variant: None
+
+scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: 500
+
+  # Number of lines the viewport will move for every line scrolled when
+  # scrollback is enabled (history > 0).
+  multiplier: 3
+
+# Font configuration (changes require restart)
+font:
+  size: 9.0
+
+  normal:
+    family: "RobotoMono Nerd Font Mono"
+    style: Regular
+
+  bold:
+    family: "RobotoMono Nerd Font Mono"
+    style: Bold
+
+  italic:
+    family: "RobotoMono Nerd Font Mono"
+    style: Italic
+
+  offset:
+    x: 0
+    y: 0
+
+# If `true`, bold text is drawn using the bright color variants.
+draw_bold_text_with_bright_colors: true
+
+# Base16 Gruvbox dark, hard 256 - alacritty color config
+# Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
+colors:
+  # Default colors
+  primary:
+    background: '0x1d2021'
+    foreground: '0xd5c4a1'
+
+  cursor:
+    text: '0x1d2021'
+    cursor: '0xd5c4a1'
+
+  # Normal colors
+  normal:
+    black:   '0x1d2021'
+    red:     '0xfb4934'
+    green:   '0xb8bb26'
+    yellow:  '0xfabd2f'
+    blue:    '0x83a598'
+    magenta: '0xd3869b'
+    cyan:    '0x8ec07c'
+    white:   '0xd5c4a1'
+
+  # Bright colors
+  bright:
+    black:   '0x665c54'
+    red:     '0xfb4934'
+    green:   '0xb8bb26'
+    yellow:  '0xfabd2f'
+    blue:    '0x83a598'
+    magenta: '0xd3869b'
+    cyan:    '0x8ec07c'
+    white:   '0xfbf1c7'
+
+
+  # Indexed Colors
+  indexed_colors:
+    - { index: 16, color: '0xfe8019' }
+    - { index: 17, color: '0xd65d0e' }
+    - { index: 18, color: '0x3c3836' }
+    - { index: 19, color: '0x504945' }
+    - { index: 20, color: '0xbdae93' }
+    - { index: 21, color: '0xebdbb2' }
+
+# Deactivate Visual Bell
+visual_bell:
+  duration: 0
+
+# Background opacity
+background_opacity: 1.0
+
+
+# Allow terminal applications to change Alacritty's window title.
+dynamic_title: true
+
+cursor:
+  style: Block
+  unfocused_hollow: true
+
+live_config_reload: true
+
+# Directory the shell is started in. If this is unset, or `None`, the working
+# directory of the parent process will be used.
+working_directory: None
+
+# Send ESC (\x1b) before characters when alt is pressed.
+# alt_send_esc: true
+
+debug:
+  # Display the time it takes to redraw each frame.
+  render_timer: false
+
+  # Keep the log file after quitting Alacritty.
+  persistent_logging: false
+
+  # Log level
+  #
+  # Values for `log_level`:
+  #   - None
+  #   - Error
+  #   - Warn
+  #   - Info
+  #   - Debug
+  #   - Trace
+  log_level: Warn
+
+  # Print all received window events.
+  print_events: false
+
+  # Record all characters and escape sequences as test data.
+  ref_test: false
+
