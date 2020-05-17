@@ -12,9 +12,10 @@ xmodmap -e 'clear Lock' ~/.Xmodmap
 
 nm-applet & 
 pasystray &
+unclutter -jitter 100 &
 
 # Set background via feh
-feh --bg-scale img/background/abstract_form_green.jpg
+feh --bg-scale ~/img/wallpaper/fern_leaves.jpg
 
 [[ -z $MONITOR ]] || ~/.config/polybar/launch.sh
 
