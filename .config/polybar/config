@@ -1,0 +1,163 @@
+#        __                       __ 
+#   ___ / /___ ____ __ ___  ___  / /_
+#  (_-</ __/ // /\ \ // _ \/ _ \/ __/
+# /___/\__/\_,_//_\_\/_//_/\___/\__/ 
+# https://github.com/stuxnot                                   
+
+[colors]
+background = #222
+background-alt = #444
+foreground = #dfdfdf
+foreground-alt = #888
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+[bar/main]
+width = 100%
+height = 3.5%
+offset-y = 0%
+fixed-center = false
+bottom = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+border-size = 0
+line-size = 2
+padding = 1
+module-margin = 1
+
+modules-left = date bspwm xwindow
+modules-center = 
+modules-right = volume battery cpu temperature
+
+font-0 = RobotoMono Nerd Font:size=14;1
+font-1 = RobotoMono Nerd Font:size=14;1
+font-2 = RobotoMono Nerd Font:size=14;1
+font-3 = RobotoMono Nerd Font:size=14;1
+
+tray-position = right
+tray-padding = 2
+tray-maxsize = 24
+
+wm-restack = bspwm
+
+[bar/desktop]
+inherit = bar/main
+monitor = ${env:MONITOR}
+
+[bar/side]
+inherit = bar/main
+monitor = ${env:SIDE_MONITOR}
+
+height = 2.0%
+
+modules-left = date bspwm xwindowside
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:80:...%
+
+[module/xwindowside]
+inherit = module/xwindow
+label = %title:0:30:...%
+
+[module/bspwm]
+type = internal/bspwm
+pin-workspaces = false
+enable-click = false
+enable-scroll = false
+
+label-focused = " %name% "
+label-focused-underline = #fba922
+
+label-occupied = " %name% "
+label-occupied-foreground = #ffaa00
+
+label-urgent = " %name% "
+label-urgent-underline = #9b0a20
+
+label-empty = " %name% "
+label-empty-foreground = #555555
+
+[module/temperature]
+type = internal/temperature
+
+warn-temperature = 60
+
+thermal-zone = 0 
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input
+
+format-underline = #115511
+label-warn-underline = #f900
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = "%a %d"
+time = %H:%M
+
+format-prefix-foreground = ${colors.foreground-alt}
+
+label = %date% %time%
+
+[module/battery]
+type = internal/battery
+
+battery = BAT0
+adapter = AC
+
+format-charging = "<animation-charging>  <label-charging>"
+
+format-discharging = "<ramp-capacity>  <label-discharging>"
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = ""
+ramp-capacity-1 = ""
+ramp-capacity-2 = ""
+ramp-capacity-3 = ""
+ramp-capacity-4 = ""
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = ""
+animation-charging-1 = ""
+animation-charging-2 = ""
+animation-charging-3 = ""
+animation-charging-4 = ""
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+[module/volume]
+type = internal/alsa
+
+format-volume = <ramp-volume> <label-volume>
+format-volume-padding = 1
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+ramp-volume-foreground = ${colors.foreground}
+
+format-muted-prefix = " "
+format-muted-underline = #f90000
+label-muted = MUTED
+format-muted-padding = 1
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #fba922
+label = %percentage:2%%
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
