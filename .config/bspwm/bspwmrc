@@ -31,6 +31,7 @@ bspc config borderless_monocle   false
 bspc config gapless_monocle      false
 
 bspc rule -a firefox desktop='^1'
+bspc rule -a Discord desktop='^5'
 # https://github.com/baskerville/bspwm/issues/291
 # only works due to https://github.com/dasJ/spotifywm
 bspc rule -a Spotify desktop='^7' state=pseudo_tiled
