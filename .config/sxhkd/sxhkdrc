@@ -84,8 +84,8 @@ super + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
-super + {_,shift + }{1-8}
-	bspc {desktop -f,node -d} '^{1-8}'
+super + {_,shift + }{1-9}
+	bspc {desktop -f,node -d} '^{1-9}'
 
 #
 # preselect
@@ -122,3 +122,16 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# function keys
+XF86Audio{Lower,Raise}Volume
+    pactl set-sink-volume 0 {-,+}5%
+
+XF86AudioMute 
+    pactl set-sink-mute 0 toggle
+
+ if [[ $HOST -eq "kronos" ]]; then 
+XF86MonBrightness{Down,Up}
+    xbacklight -{dec,inc} 10
+ fi
+

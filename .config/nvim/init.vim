@@ -125,6 +125,7 @@ call plug#begin('~/.config/nvim/plugged')
     " Syntactic language support
     Plug 'rust-lang/rust.vim'
     Plug 'lervag/vimtex'
+    Plug 'baskerville/vim-sxhkdrc'
 
     " function analyzer
     Plug 'liuchengxu/vista.vim'
@@ -373,6 +374,7 @@ fun! CleanExtraSpaces()
     call setreg('/', old_query)
 endfun
 
+command! -nargs=0 CleanSpaces call CleanExtraSpaces()
 if has("autocmd")
     autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee,*.tex :call CleanExtraSpaces()
     " Autocompile .Xresources

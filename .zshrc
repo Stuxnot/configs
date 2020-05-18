@@ -4,7 +4,7 @@
 # /___/\__/\_,_//_\_\/_//_/\___/\__/ 
 # https://github.com/stuxnot                                   
 
-###########################
+###############################
 #
 # ### Table of Contents ###
 #
@@ -12,13 +12,13 @@
 # 2. Powerlevel10k
 # 3. Zplug
 #
-###########################
+###############################
 
-###########################
+###############################
 #
 # General settings
 #
-###########################
+###############################
 
 HISTFILE=$HOME/.config/zsh/zsh_history
 HISTSIZE=1000
@@ -52,11 +52,11 @@ bindkey '^[[A' history-beginning-search-backward
 bindkey '^[[B' history-beginning-search-forward
 
 
-###########################
+###############################
 #
 # Powerlevel10k
 #
-###########################
+###############################
 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -70,11 +70,11 @@ fi
 [[ ! -f ~/.config/zsh/p10k.zsh ]] || source $HOME/.config/zsh/p10k.zsh
 
 
-###########################
+###############################
 #
 # Zplug
 #
-###########################
+###############################
 
 export ZPLUG_HOME=$HOME/.config/zsh/zplug
 source $ZPLUG_HOME/init.zsh
