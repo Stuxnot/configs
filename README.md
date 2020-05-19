@@ -6,7 +6,7 @@ and `SIDE_MONITOR` set by `.profile`
 
 ## Installation
 ```shell
-git clone --bare https://github.com/ton1ght/dotfiles.git $HOME/.cfg
+git clone --bare https://github.com/stuxnot/configs.git $HOME/.cfg
 function config {
    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
 }
