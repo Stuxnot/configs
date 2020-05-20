@@ -7,7 +7,7 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 if [[ $(hostname) = 'hyperion' ]]; then
     exec polybar --reload desktop &
-elif [[$(hostname) = 'kronos' ]]; then
+elif [[ $(hostname) = 'kronos' ]]; then
     exec polybar --reload laptop &
 else
     exec polybar --reload main &
