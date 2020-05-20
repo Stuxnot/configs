@@ -10,13 +10,15 @@ super + Return
 super + d
 	rofi -show drun
 
-super + equal
+super + plus
     ~/bin/rofi_configs.sh
 
 # make sxhkd reload its configuration files:
-super + Escape
+super + shift + r
 	pkill -USR1 -x sxhkd
 
+super + e
+    alacritty -e ranger
 #
 # bspwm hotkeys
 #
@@ -84,8 +86,15 @@ super + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
+ if [[ $(hostname) = 'hyperion' ]]; then
+super + {_,shift + }{1-5}
+	bspc {desktop -f,node -d} '^{6-9,10}'
+super + alt + {_,shift + }{1-5}
+	bspc {desktop -f,node -d} '^{1-5}'
+ else
 super + {_,shift + }{1-9}
 	bspc {desktop -f,node -d} '^{1-9}'
+ fi
 
 #
 # preselect
@@ -96,8 +105,8 @@ super + ctrl + {h,j,k,l}
 	bspc node -p {west,south,north,east}
 
 # preselect the ratio
-super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
+# super + ctrl + {1-9}
+	# bspc node -o 0.{1-9}
 
 # cancel the preselection for the focused node
 super + ctrl + space
@@ -125,12 +134,12 @@ super + {Left,Down,Up,Right}
 
 # function keys
 XF86Audio{Lower,Raise}Volume
-    pactl set-sink-volume 0 {-,+}5%
+    pactl set-sink-volume @DEFAULT_SINK@ {-,+}5%
 
 XF86AudioMute 
-    pactl set-sink-mute 0 toggle
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
 
- if [[ $HOST -eq "kronos" ]]; then 
+ if [[ $HOST = "kronos" ]]; then 
 XF86MonBrightness{Down,Up}
     xbacklight -{dec,inc} 10
  fi

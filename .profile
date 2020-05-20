@@ -15,9 +15,9 @@ export PATH
 
 # Set monitor depending on hostname.
 HOST=$(hostname)
-if [[ $HOST -eq 'kronos' ]]; then
+if [[ $HOST = 'kronos' ]]; then
     export MONITOR=eDP1
-elif [[ $HOST -eq 'hyperion' ]]; then
+elif [[ $HOST = 'hyperion' ]]; then
     export MONITOR=DisplayPort-0
-    export SIDE_MONITOR=HDMI-0
+    export SIDE_MONITOR=HDMI-A-0
 fi

@@ -43,14 +43,13 @@ if [[ -z $SIDE_MONITOR ]]; then
     bspc rule -a Spotify desktop='^7' state=pseudo_tiled
     bspc rule -a KeePassXC desktop='^8'
 else
-    # untested
-    bspc monitor $SIDE_MONITOR -d web 
-    bspc monitor $MONITOR -d a b c d
-    bspc monitor $SIDE_MONITOR -d mail chat mp vlt 
+    bspc monitor $MONITOR -d a b c d e
+    bspc monitor $SIDE_MONITOR -d web mail chat mp vlt
 
-    bspc rule -a Discord desktop='^7'
-    bspc rule -a Spotify desktop='^8' state=pseudo_tiled
-    bspc rule -a KeePassXC desktop='^9'
+    bspc rule -a firefox desktop='^1'
+    bspc rule -a Discord desktop='^3'
+    bspc rule -a Spotify desktop='^4' state=pseudo_tiled
+    bspc rule -a KeePassXC desktop='^5'
 fi
 
 
@@ -62,14 +61,22 @@ fi
 
 sxhkd &
 
-# Set caps_lock as escape and enable umlaute.
-xmodmap -e 'clear Lock' ~/.Xmodmap 
+if [[ $(hostname) = 'hyperion' ]]; then
+    xrandr --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate right --scale 1.4x1.4 --output DisplayPort-0 --primary --mode 3840x2160 --pos 1512x264 --rotate normal --set TearFree on 
+elif [[ $(hostname) = 'kronos' ]]; then
+    nm-applet & 
+fi
 
-nm-applet & 
+# Set caps_lock as escape and enable umlaute.
+# xmodmap -e 'clear Lock' ~/.Xmodmap 
+
 pasystray &
 unclutter -jitter 100 &
 
+keepassxc &
+
+
 # Set background via feh
-feh --bg-scale ~/img/wallpaper/fern_leaves.jpg
+feh --bg-scale ~/img/wallpaper/frosted.jpg
 
 [[ -z $MONITOR ]] || ~/.config/polybar/launch.sh

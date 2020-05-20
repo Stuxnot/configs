@@ -12,7 +12,7 @@ bspwm
 sxhkd
 dunst
 ranger
-vim
+nvim
 polybar
 rofi
 xresources
@@ -43,8 +43,8 @@ case "$choice" in
 	ranger)
 		choice="$HOME/.config/ranger/rc.conf"
 	;;
-	vim)
-		choice="$HOME/.config/nvim/.vimrc"
+	nvim)
+		choice="$HOME/.config/nvim/init.vim"
 	;;
 	polybar)
 		choice="$HOME/.config/polybar/config"

@@ -14,8 +14,15 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/main]
+monitor = ${env:MONITOR}
+
+font-0 = RobotoMono Nerd Font:size=14;1
+font-1 = RobotoMono Nerd Font:size=14;1
+font-2 = RobotoMono Nerd Font:size=14;1
+font-3 = RobotoMono Nerd Font:size=14;1
+
 width = 100%
-height = 3.5%
+height = 2.5%
 offset-y = 0%
 fixed-center = false
 bottom = true
@@ -30,12 +37,8 @@ module-margin = 1
 
 modules-left = date bspwm xwindow
 modules-center = 
-modules-right = volume battery cpu temperature
+modules-right = volume cpu 
 
-font-0 = RobotoMono Nerd Font:size=14;1
-font-1 = RobotoMono Nerd Font:size=14;1
-font-2 = RobotoMono Nerd Font:size=14;1
-font-3 = RobotoMono Nerd Font:size=14;1
 
 tray-position = right
 tray-padding = 2
@@ -43,9 +46,16 @@ tray-maxsize = 24
 
 wm-restack = bspwm
 
+
 [bar/desktop]
 inherit = bar/main
-monitor = ${env:MONITOR}
+
+font-0 = RobotoMono Nerd Font:size=18;1
+font-1 = RobotoMono Nerd Font:size=18;1
+font-2 = RobotoMono Nerd Font:size=18;1
+font-3 = RobotoMono Nerd Font:size=18;1
+
+modules-right = volume cpu temp_desktop
 
 [bar/side]
 inherit = bar/main
@@ -54,6 +64,17 @@ monitor = ${env:SIDE_MONITOR}
 height = 2.0%
 
 modules-left = date bspwm xwindowside
+modules-right = volume cpu temp_desktop
+
+[bar/laptop]
+inherit = bar/main
+
+font-0 = RobotoMono Nerd Font:size=15;1
+font-1 = RobotoMono Nerd Font:size=15;1
+font-2 = RobotoMono Nerd Font:size=15;1
+font-3 = RobotoMono Nerd Font:size=15;1
+
+modules-right = volume battery cpu temp_laptop
 
 [module/xwindow]
 type = internal/xwindow
@@ -64,8 +85,9 @@ inherit = module/xwindow
 label = %title:0:30:...%
 
 [module/bspwm]
+# credit: https://github.com/jonhoo/configs
 type = internal/bspwm
-pin-workspaces = false
+pin-workspaces = true
 enable-click = false
 enable-scroll = false
 
@@ -87,10 +109,17 @@ type = internal/temperature
 warn-temperature = 60
 
 thermal-zone = 0 
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input
 
 format-underline = #115511
 label-warn-underline = #f900
+
+[module/temp_laptop]
+inherit = module/temperature
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input
+
+[module/temp_desktop]
+inherit = module/temperature
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp3_input
 
 [module/date]
 type = internal/date
