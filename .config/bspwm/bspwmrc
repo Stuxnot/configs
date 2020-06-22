@@ -34,10 +34,10 @@ bspc config gapless_monocle      false
 # Desktop Configuration
 #
 ###############################
-if [[ -z $SIDE_MONITOR ]]; then
+if [ -z $SIDE_MONITOR ]; then
     bspc monitor -d web a b c mail chat mp vlt 
 
-    bspc rule -a Discord desktop='^6'
+    bspc rule -a discord desktop='^6'
     # https://github.com/baskerville/bspwm/issues/291
     # works with: https://github.com/dasJ/spotifywm
     bspc rule -a Spotify desktop='^7' state=pseudo_tiled
@@ -46,11 +46,13 @@ else
     bspc monitor $MONITOR -d a b c d e
     bspc monitor $SIDE_MONITOR -d web mail chat mp vlt
 
-    bspc rule -a firefox desktop='^1'
-    bspc rule -a Discord desktop='^3'
-    bspc rule -a Spotify desktop='^4' state=pseudo_tiled
-    bspc rule -a KeePassXC desktop='^5'
+    bspc rule -a firefox desktop='^1' follow=on
+    bspc rule -a discord desktop='^3'
+    bspc rule -a Spotify desktop='^4' state=pseudo_tiled follow=on
+    bspc rule -a KeePassXC desktop='^5' state=tiled follow=on
 fi
+
+bspc rule -a Zathura state=tiled
 
 
 ###############################
@@ -59,22 +61,23 @@ fi
 #
 ###############################
 
-sxhkd &
+[[ -z $(pidof sxhkd) ]] && sxhkd &
+
+# dpi scaling is done via lightdm
 
 if [[ $(hostname) = 'kronos' ]]; then
-    nm-applet & 
+    [[ -z $(pidof nm-applet) ]] && nm-applet & 
 fi
 
 # Set caps_lock as escape and enable umlaute.
-xmodmap -e 'clear Lock' ~/.Xmodmap 
+xmodmap -e 'clear Lock' $HOME/.Xmodmap 
 
-pasystray &
-unclutter -jitter 100 &
+[[ -z $(pidof pasystray) ]] && pasystray &
+[[ -z $(pidof unclutter) ]] && unclutter -jitter 100 &
 
 keepassxc &
 
-
 # Set background via feh
-feh --bg-scale ~/img/wallpaper/frosted.jpg
+feh --bg-scale $HOME/img/wallpaper/frosted.jpg
 
-[[ -z $MONITOR ]] || ~/.config/polybar/launch.sh
+[[ -z $MONITOR ]] || $HOME/.config/polybar/launch.sh

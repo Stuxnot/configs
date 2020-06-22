@@ -19,6 +19,12 @@ super + shift + r
 
 super + e
     alacritty -e ranger
+
+super + x
+    i3lock -c 000000
+
+super + shift + x
+    systemctl hibernate
 #
 # bspwm hotkeys
 #
@@ -89,7 +95,7 @@ super + {o,i}
  if [[ $(hostname) = 'hyperion' ]]; then
 super + {_,shift + }{1-5}
 	bspc {desktop -f,node -d} '^{6-9,10}'
-super + alt + {_,shift + }{1-5}
+super + mod5 + {_,shift + }{1-5}
 	bspc {desktop -f,node -d} '^{1-5}'
  else
 super + {_,shift + }{1-9}
@@ -105,8 +111,8 @@ super + ctrl + {h,j,k,l}
 	bspc node -p {west,south,north,east}
 
 # preselect the ratio
-# super + ctrl + {1-9}
-	# bspc node -o 0.{1-9}
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
 
 # cancel the preselection for the focused node
 super + ctrl + space
@@ -138,6 +144,13 @@ XF86Audio{Lower,Raise}Volume
 
 XF86AudioMute 
     pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+XF86AudioPlay
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+XF86AudioPrev
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+XF86AudioNext
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 
  if [[ $HOST = "kronos" ]]; then 
 XF86MonBrightness{Down,Up}

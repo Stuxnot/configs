@@ -141,7 +141,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 " vimtex
 let g:tex_flavor = "latex"
-let g:vimtex_view_general_viewer = 'mupdf'
+let g:vimtex_view_general_viewer = 'zathura'
 let g:latex_viewer = 'mupdf'
 
 " securemodelines
@@ -214,7 +214,7 @@ inoremap <silent><expr> <c-r> coc#refresh()
 inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use rn for rename.
-nmap <silent>rn <Plug>(coc-rename)
+nmap <leader>rn <Plug>(coc-rename)
 
 " fzf hotkeys
 map <C-p> :Files<Cr>

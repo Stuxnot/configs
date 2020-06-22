@@ -39,7 +39,7 @@ scrolling:
 
 # Font configuration (changes require restart)
 font:
-  size: 9.0
+  size: 12.0
 
   normal:
     family: "RobotoMono Nerd Font Mono"
@@ -54,7 +54,7 @@ font:
     style: Italic
 
   offset:
-    x: 0
+    x: -3
     y: 0
 
 # If `true`, bold text is drawn using the bright color variants.
@@ -110,7 +110,6 @@ visual_bell:
 
 # Background opacity
 background_opacity: 1.0
-
 
 # Allow terminal applications to change Alacritty's window title.
 dynamic_title: true

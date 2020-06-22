@@ -16,10 +16,12 @@ rofi.ssh-client:                     ssh
 rofi.ssh-command:                    {terminal} -e {ssh-client} {host}
 rofi.run-command:                    {cmd}
 rofi.parse-hosts:                    true
-rofi.matching:                       normal
+rofi.matching:                       fuzzy
 rofi.separator-style:                none
 rofi.scrollbar-width:                0
 rofi.kb-mode-next:                   Shift+Right,Control+Tab,Alt+l
 rofi.kb-mode-previous:               Shift+Left,Control+Shift+Tab,Alt+h
 rofi.kb-row-up:                      Up,Control+p,Shift+Tab,Shift+ISO_Left_Tab,Alt+k
 rofi.kb-row-down:                    Down,Control+n,Alt+j
+rofi.show-icons:                     true
+rofi.monitor:                        primary
