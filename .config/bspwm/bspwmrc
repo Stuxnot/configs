@@ -34,7 +34,7 @@ bspc config gapless_monocle      false
 # Desktop Configuration
 #
 ###############################
-if [ -z $SIDE_MONITOR ]; then
+if [[ -z $SIDE_MONITOR ]]; then
     bspc monitor -d web a b c mail chat mp vlt 
 
     bspc rule -a discord desktop='^6'
@@ -42,18 +42,21 @@ if [ -z $SIDE_MONITOR ]; then
     # works with: https://github.com/dasJ/spotifywm
     bspc rule -a Spotify desktop='^7' state=pseudo_tiled
     bspc rule -a KeePassXC desktop='^8'
+
+    [[ -z $(pidof sxhkd) ]] && sxhkd -c $HOME/.config/sxhkd/laptop &
 else
     bspc monitor $MONITOR -d a b c d e
     bspc monitor $SIDE_MONITOR -d web mail chat mp vlt
 
-    bspc rule -a firefox desktop='^1' follow=on
     bspc rule -a discord desktop='^3'
     bspc rule -a Spotify desktop='^4' state=pseudo_tiled follow=on
     bspc rule -a KeePassXC desktop='^5' state=tiled follow=on
+
+    [[ -z $(pidof sxhkd) ]] && sxhkd -c $HOME/.config/sxhkd/desktop &
 fi
 
 bspc rule -a Zathura state=tiled
-
+bspc rule -a firefox desktop='^1' follow=on
 
 ###############################
 #
@@ -61,11 +64,7 @@ bspc rule -a Zathura state=tiled
 #
 ###############################
 
-[[ -z $(pidof sxhkd) ]] && sxhkd &
-
-# dpi scaling is done via lightdm
-
-if [[ $(hostname) = 'kronos' ]]; then
+if [[ "$HOST" = "kronos" ]]; then
     [[ -z $(pidof nm-applet) ]] && nm-applet & 
 fi
 
