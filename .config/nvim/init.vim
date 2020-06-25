@@ -112,7 +112,6 @@ call plug#begin('~/.config/nvim/plugged')
     " Fuzzy finder
     " ###
     Plug 'airblade/vim-rooter'
-    Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
 
     " ###
@@ -143,6 +142,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:tex_flavor = "latex"
 let g:vimtex_view_general_viewer = 'zathura'
 let g:latex_viewer = 'mupdf'
+let g:vimtex_quickfix_open_on_warning = 0
 
 " securemodelines
 let g:secure_modelines_allowed_items = [
@@ -219,6 +219,8 @@ nmap <leader>rn <Plug>(coc-rename)
 " fzf hotkeys
 map <C-p> :Files<Cr>
 nmap <leader>; :Buffer<Cr>
+
+nmap <localleader>lt :call vimtex#fzf#run()<cr>
 
 " better copy and pasting to/from buffers
 vmap <leader>y "+y
