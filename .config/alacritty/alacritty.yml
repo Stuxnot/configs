@@ -3,6 +3,8 @@
 #  (_-</ __/ // /\ \ // _ \/ _ \/ __/
 # /___/\__/\_,_//_\_\/_//_/\___/\__/ 
 # https://github.com/stuxnot                                   
+#
+# Inspired by httsp://github.com/jonhoo
 
 env:
   TERM: xterm-256color
@@ -39,7 +41,7 @@ scrolling:
 
 # Font configuration (changes require restart)
 font:
-  size: 12.0
+  size: 9.0
 
   normal:
     family: "RobotoMono Nerd Font Mono"
