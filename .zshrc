@@ -74,7 +74,6 @@ if [[ $TERM != 'linux' ]]; then
 
     [[ ! -f ~/.config/zsh/p10k.zsh ]] || source $HOME/.config/zsh/p10k.zsh
 
-
     ###############################
     #
     # Zplug
@@ -103,4 +102,5 @@ if [[ $TERM != 'linux' ]]; then
     bindkey '^N' autosuggest-accept
 else
     export EDITOR="vi"
+    export VISUAL="vi"
 fi
