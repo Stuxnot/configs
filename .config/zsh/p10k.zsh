@@ -59,7 +59,8 @@
     # command_execution_time    # previous command duration
     # virtualenv                # python virtual environment
     # context                   # user@host
-    # time                    # current time
+    # time                      # current time
+    status                      # exit status of last program
   )
 
   typeset -g POWERLEVEL9K_THEME="powerlevel10k/powerlevel10k"
@@ -154,6 +155,10 @@
   # commands will contain the start times of their commands rather than the end times of
   # their preceding commands.
   typeset -g POWERLEVEL9K_TIME_UPDATE_ON_COMMAND=false
+
+  # status config
+  POWERLEVEL9K_STATUS_HIDE_SIGNAME=true
+  POWERLEVEL9K_STATUS_FOREGROUND=$red
 
   # Transient prompt works similarly to the builtin transient_rprompt option. It trims down prompt
   # when accepting a command line. Supported values:

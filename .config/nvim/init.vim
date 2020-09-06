@@ -107,6 +107,10 @@ call plug#begin('~/.config/nvim/plugged')
     " general improvements
     " ###
     Plug 'ciaranm/securemodelines'
+    Plug 'tpope/vim-fugitive' 
+    Plug 'airblade/vim-gitgutter'
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
 
     " ###
     " Fuzzy finder
@@ -123,7 +127,7 @@ call plug#begin('~/.config/nvim/plugged')
 
     " Syntactic language support
     Plug 'rust-lang/rust.vim'
-    Plug 'lervag/vimtex'
+    " Plug 'lervag/vimtex'
     Plug 'baskerville/vim-sxhkdrc'
 
     " function analyzer
@@ -134,9 +138,19 @@ call plug#end()
 " vim-matchup 
 let g:loaded_matchit = 1
 
+let g:lightline = {
+            \ 'active': {
+            \   'left': [ [ 'mode', 'paste'], 
+            \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ] 
+            \ },
+            \ 'component_function': {
+            \   'gitbranch': 'FugitiveHead'
+            \ },       
+            \ }
+
 " airline settings
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+" let g:airline_powerline_fonts = 1
+" let g:airline#extensions#tabline#enabled = 1
 
 " vimtex
 let g:tex_flavor = "latex"

@@ -74,6 +74,8 @@ xmodmap -e 'clear Lock' $HOME/.Xmodmap
 [[ -z $(pidof pasystray) ]] && pasystray &
 [[ -z $(pidof unclutter) ]] && unclutter -jitter 100 &
 
+[[ -z $(pidof blueman-applet) ]] && blueman-applet &
+
 keepassxc &
 
 # Set background via feh

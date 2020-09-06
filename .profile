@@ -17,6 +17,8 @@ export VISUAL="nvim"
 PATH=$PATH:/home/heartbleed/bin
 export PATH
 
+eval $(ssh-agent)
+
 # Set monitor depending on hostname.
 HOST=$(hostname)
 if [[ $HOST = 'kronos' ]]; then

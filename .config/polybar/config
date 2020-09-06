@@ -39,11 +39,7 @@ modules-left = date bspwm xwindow
 modules-center = 
 modules-right = volume cpu 
 
-
-
-
 wm-restack = bspwm
-
 
 [bar/desktop]
 inherit = bar/main
