@@ -54,6 +54,11 @@ if [[ $TERM != 'linux' ]]; then
     bindkey '^[[A' history-beginning-search-backward
     bindkey '^[[B' history-beginning-search-forward
 
+    # enable command line editor
+    autoload -z edit-command-line
+    zle -N edit-command-line
+    bindkey "^X^E" edit-command-line
+
     export EDITOR="nvim"
     export VISUAL="nvim"
 
@@ -94,6 +99,8 @@ if [[ $TERM != 'linux' ]]; then
     zplug "zsh-users/zsh-syntax-highlighting",  defer:2
     zplug "zsh-users/zsh-completions"
     zplug "zsh-users/zsh-autosuggestions"
+
+    # zplug "softmoth/zsh-vim-mode"
 
     zplug load 
 

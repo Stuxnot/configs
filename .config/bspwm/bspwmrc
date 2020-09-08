@@ -68,9 +68,12 @@ fi
 xmodmap -e 'clear Lock' $HOME/.Xmodmap 
 
 [[ -z $(pidof pasystray) ]] && pasystray &
+
 [[ -z $(pidof unclutter) ]] && unclutter -jitter 100 &
 
 [[ -z $(pidof keepassxc) ]] && keepassxc &
+
+[[ -z $(pidof blueman-applet) ]] && blueman-applet &
 
 # Set background via feh
 feh --bg-scale $HOME/img/wallpaper/frosted.jpg
