@@ -35,28 +35,20 @@ bspc config gapless_monocle      false
 #
 ###############################
 if [[ -z $SIDE_MONITOR ]]; then
-    bspc monitor -d web a b c mail chat mp vlt 
-
-    bspc rule -a discord desktop='^6'
-    # https://github.com/baskerville/bspwm/issues/291
-    # works with: https://github.com/dasJ/spotifywm
-    bspc rule -a Spotify desktop='^7' state=pseudo_tiled
-    bspc rule -a KeePassXC desktop='^8'
-
-    [[ -z $(pidof sxhkd) ]] && sxhkd -c $HOME/.config/sxhkd/laptop &
+    bspc monitor -d web mail chat mp vlt a b c d e 
 else
     bspc monitor $MONITOR -d a b c d e
     bspc monitor $SIDE_MONITOR -d web mail chat mp vlt
-
-    bspc rule -a discord desktop='^3'
-    bspc rule -a Spotify desktop='^4' state=pseudo_tiled follow=on
-    bspc rule -a KeePassXC desktop='^5' state=tiled follow=on
-
-    [[ -z $(pidof sxhkd) ]] && sxhkd -c $HOME/.config/sxhkd/desktop &
 fi
 
+bspc rule -a discord desktop='^3'
+bspc rule -a Spotify desktop='^4' state=pseudo_tiled follow=on
+bspc rule -a KeePassXC desktop='^5' state=tiled follow=on
 bspc rule -a Zathura state=tiled
 bspc rule -a firefox desktop='^1' follow=on
+
+[[ -z $(pidof sxhkd) ]] ||  killall sxhkd
+
 
 ###############################
 #
@@ -64,7 +56,11 @@ bspc rule -a firefox desktop='^1' follow=on
 #
 ###############################
 
-if [[ "$HOST" = "kronos" ]]; then
+sxhkd &
+
+[[ -z $(pidof blueman-applet) ]] && blueman-applet &
+
+if [[ "$(hostname)" = "kronos" ]]; then
     [[ -z $(pidof nm-applet) ]] && nm-applet & 
 fi
 
@@ -74,7 +70,7 @@ xmodmap -e 'clear Lock' $HOME/.Xmodmap
 [[ -z $(pidof pasystray) ]] && pasystray &
 [[ -z $(pidof unclutter) ]] && unclutter -jitter 100 &
 
-keepassxc &
+[[ -z $(pidof keepassxc) ]] && keepassxc &
 
 # Set background via feh
 feh --bg-scale $HOME/img/wallpaper/frosted.jpg

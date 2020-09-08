@@ -134,6 +134,9 @@ call plug#end()
 " vim-matchup 
 let g:loaded_matchit = 1
 
+" rooter settings
+let g:rooter_patterns = ['!Makefile']
+
 " airline settings
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1

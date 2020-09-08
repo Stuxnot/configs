@@ -1,12 +1,11 @@
 #!/bin/zsh
 
-alias py="python3"
-alias py2="python"
+alias py="python"
 alias vim="nvim"
 alias zshrc="vim ~/.zshrc"
 alias vimrc="vim ~/.config/nvim/init.vim"
-alias bspwmconfig="vim ~/.config/bspwm/bspwmrc"
-alias sxhkdconfig="vim ~/.config/sxhkd/sxhkdrc"
+alias bspwmrc="vim ~/.config/bspwm/bspwmrc"
+alias sxhkdrc="vim ~/.config/sxhkd/sxhkdrc"
 alias comptonconfig="vim ~/.config/compton/compton.conf"
 alias rm="rm -I"
 alias grep="grep --color=auto"

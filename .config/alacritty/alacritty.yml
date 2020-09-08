@@ -107,14 +107,14 @@ colors:
     - { index: 21, color: '0xebdbb2' }
 
 # Deactivate Visual Bell
-visual_bell:
+bell:
   duration: 0
 
 # Background opacity
 background_opacity: 1.0
 
 # Allow terminal applications to change Alacritty's window title.
-dynamic_title: true
+window.dynamic_title: true
 
 cursor:
   style: Block

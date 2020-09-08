@@ -39,11 +39,7 @@ modules-left = date bspwm xwindow
 modules-center = 
 modules-right = volume cpu 
 
-
-
-
 wm-restack = bspwm
-
 
 [bar/desktop]
 inherit = bar/main
@@ -64,13 +60,15 @@ tray-maxsize = 24
 inherit = bar/main
 monitor = ${env:SIDE_MONITOR}
 
-height = 2.0%
+height = 3.5%
 
 modules-left = date bspwm xwindowside
-modules-right = volume cpu temp_desktop 
+modules-right = volume cpu 
 
 [bar/laptop]
 inherit = bar/main
+
+monitor = ${env:MONITOR:eDP1:DP1}
 
 height = 3.5%
 
@@ -85,6 +83,8 @@ modules-right = volume battery cpu temp_laptop
 tray-position = right
 tray-padding = 2
 tray-maxsize = 24
+
+# bottom = false
 
 [module/xwindow]
 type = internal/xwindow
