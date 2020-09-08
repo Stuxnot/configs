@@ -138,6 +138,10 @@ call plug#end()
 " vim-matchup 
 let g:loaded_matchit = 1
 
+
+" rooter settings
+let g:rooter_patterns = ['!Makefile']
+
 let g:lightline = {
             \ 'active': {
             \   'left': [ [ 'mode', 'paste'], 
