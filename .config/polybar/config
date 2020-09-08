@@ -84,7 +84,7 @@ tray-position = right
 tray-padding = 2
 tray-maxsize = 24
 
-# bottom = false
+bottom = false
 
 [module/xwindow]
 type = internal/xwindow
