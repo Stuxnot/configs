@@ -60,7 +60,7 @@ tray-maxsize = 24
 inherit = bar/main
 monitor = ${env:SIDE_MONITOR}
 
-height = 3.5%
+height = 2.0%
 
 modules-left = date bspwm xwindowside
 modules-right = volume cpu 
