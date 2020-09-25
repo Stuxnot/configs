@@ -155,3 +155,6 @@ debug:
 
 key_bindings:
     - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
+    - { key: F8, action: SpawnNewInstance }
+    - { key: PageUp, action: ScrollHalfPageUp }
+    - { key: PageDown, action: ScrollHalfPageDown }

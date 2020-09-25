@@ -1,13 +1,13 @@
 #!/bin/sh
-#        __                       __ 
+#        __                       __
 #   ___ / /___ ____ __ ___  ___  / /_
 #  (_-</ __/ // /\ \ // _ \/ _ \/ __/
-# /___/\__/\_,_//_\_\/_//_/\___/\__/ 
-# https://github.com/stuxnot                                   
- 
+# /___/\__/\_,_//_\_\/_//_/\___/\__/
+# https://github.com/stuxnot
+
 ###############################
 # ### Table of Contents ###
-# 
+#
 # 1. General Configuration
 # 2. Desktop Configuration
 # 3. Autostart
@@ -35,17 +35,19 @@ bspc config gapless_monocle      false
 #
 ###############################
 if [[ -z $SIDE_MONITOR ]]; then
-    bspc monitor -d web mail chat mp vlt a b c d e 
+    bspc monitor -d web mail chat mp vlt a b c d e
 else
     bspc monitor $MONITOR -d a b c d e
     bspc monitor $SIDE_MONITOR -d web mail chat mp vlt
 fi
 
 bspc rule -a discord desktop='^3'
+# only works due to https://github.com/dasJ/spotifywm
 bspc rule -a Spotify desktop='^4' state=pseudo_tiled follow=on
 bspc rule -a KeePassXC desktop='^5' state=tiled follow=on
 bspc rule -a Zathura state=tiled
 bspc rule -a firefox desktop='^1' follow=on
+bspc rule -a signal desktop='^3' follow=on
 
 [[ -z $(pidof sxhkd) ]] ||  killall sxhkd
 
@@ -61,11 +63,11 @@ sxhkd &
 [[ -z $(pidof blueman-applet) ]] && blueman-applet &
 
 if [[ "$(hostname)" = "kronos" ]]; then
-    [[ -z $(pidof nm-applet) ]] && nm-applet & 
+    [[ -z $(pidof nm-applet) ]] && nm-applet &
 fi
 
 # Set caps_lock as escape and enable umlaute.
-xmodmap -e 'clear Lock' $HOME/.Xmodmap 
+xmodmap -e 'clear Lock' $HOME/.Xmodmap
 
 [[ -z $(pidof pasystray) ]] && pasystray &
 

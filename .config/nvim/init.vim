@@ -42,7 +42,7 @@ set nobackup
 set nowb
 set noswapfile
 
-" Use spaces instead of tabs
+" Use spaces instead of tabs 
 set expandtab
 
 " Be smart when using tabs ;)
@@ -221,6 +221,8 @@ nmap <silent>gd <Plug>(coc-definition)
 nmap <silent>gy <Plug>(coc-type-definition)
 nmap <silent>gi <Plug>(coc-implementation)
 nmap <silent>gr <Plug>(coc-references)
+nmap <leader>[  <Plug>(coc-diagnostic-prev)
+nmap <leader>]  <Plug>(coc-diagnostic-next)
 
 " Use <c-.> to trigger completion.
 inoremap <silent><expr> <c-r> coc#refresh()

@@ -92,7 +92,7 @@ if [[ $TERM != 'linux' ]]; then
     zplug "plugins/git",                        from:oh-my-zsh
     zplug "plugins/command-not-found",          from:oh-my-zsh
     zplug "plugins/adb",                        from:oh-my-zsh
-    zplug "plugins/common-aliases",             from:oh-my-zsh
+    # zplug "plugins/common-aliases",             from:oh-my-zsh 
 
     # Plugins
     zplug "b4b4r07/enhancd",                    use:init.sh
