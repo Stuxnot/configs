@@ -42,18 +42,18 @@ set nobackup
 set nowb
 set noswapfile
 
-" Use spaces instead of tabs
+" Use tabs instead of spaces
 set expandtab
 
 " Be smart when using tabs ;)
 " set smarttab
 
-" 1 tab == 4 spaces
+" 1 tab == 2 spaces
 set shiftwidth=4
 set tabstop=4
 
 " Linebreak on 500 characters
-set lbr
+" set lbr
 set tw=500
 
 set ai "Auto indent
@@ -132,6 +132,8 @@ call plug#begin('~/.config/nvim/plugged')
 
     " function analyzer
     Plug 'liuchengxu/vista.vim'
+
+    Plug 'rhysd/vim-clang-format'
 
 call plug#end()
 
@@ -299,7 +301,7 @@ nnoremap <left> :bp<CR>
 nnoremap <right> :bn<CR>
 
 " ### Spell checking ###
-" Pressing ,ss will toggle and untoggle spell checking
+" Pressing <space>ss will toggle spell checking
 map <leader>ss :setlocal spell!<cr>
 
 " Shortcuts using <leader>

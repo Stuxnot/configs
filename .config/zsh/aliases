@@ -9,6 +9,5 @@ alias sxhkdrc="vim ~/.config/sxhkd/sxhkdrc"
 alias comptonconfig="vim ~/.config/compton/compton.conf"
 alias rm="rm -I"
 alias grep="grep --color=auto"
-alias removeorphans="sudo pacman -Rns $(pacman -Qtdq)"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias yay='yay --aur'

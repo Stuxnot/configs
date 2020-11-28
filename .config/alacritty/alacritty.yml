@@ -41,7 +41,7 @@ scrolling:
 
 # Font configuration (changes require restart)
 font:
-  size: 12.0
+  size: 9.0
 
   normal:
     family: "RobotoMono Nerd Font Mono"
@@ -155,3 +155,6 @@ debug:
 
 key_bindings:
     - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
+    - { key: U, mods: Control|Shift, action: ScrollPageUp }
+    - { key: D, mods: Control|Shift, action: ScrollPageDown }
+    - { key: G, mods: Control|Shift, action: ScrollToBottom }

@@ -50,9 +50,7 @@ if [[ $TERM != 'linux' ]]; then
       ;;
     esac
 
-    # search history on up and down key
-    bindkey '^[[A' history-beginning-search-backward
-    bindkey '^[[B' history-beginning-search-forward
+    source "/usr/share/fzf/key-bindings.zsh"
 
     # enable command line editor
     autoload -z edit-command-line

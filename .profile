@@ -23,7 +23,7 @@ eval $(ssh-agent)
 [ "$XDG_CURRENT_DESKTOP" = "KDE" ] || [ "$XDG_CURRENT_DESKTOP" = "GNOME" ] || export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # Set monitor depending on hostname.
-HOST=$(hostname)
+HOST=$(cat /etc/hostname)
 if [[ $HOST = 'kronos' ]]; then
     connectedSecondary=$(xrandr | grep " connected" | sed -e "s/\([A-Z0-9]\+\) connected.*/\1/" | awk 'NR==2')
     export MONITOR=eDP1
