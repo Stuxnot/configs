@@ -3,11 +3,12 @@ rofi.width:                          50
 rofi.lines:                          15
 rofi.columns:                        1
 rofi.font:                           RobotoMono Nerd Font Mono 14
-rofi.theme:                          .config/rofi/themes/base16-gruvbox-dark-hard.rasi
+rofi.opacity:                        0
+# rofi.theme:                          .config/rofi/themes/base16-gruvbox-dark-hard.rasi
 rofi.bw:                             5
 rofi.location:                       0
 rofi.padding:                        400
-rofi.fullscreen:                     true
+rofi.fullscreen:                     false
 rofi.yoffset:                        0
 rofi.xoffset:                        0
 rofi.fixed-num-lines:                true
@@ -23,5 +24,5 @@ rofi.kb-mode-next:                   Shift+Right,Control+Tab,Alt+l
 rofi.kb-mode-previous:               Shift+Left,Control+Shift+Tab,Alt+h
 rofi.kb-row-up:                      Up,Control+p,Shift+Tab,Shift+ISO_Left_Tab,Alt+k
 rofi.kb-row-down:                    Down,Control+n,Alt+j
-rofi.show-icons:                     true
+rofi.show-icons:                     false
 rofi.monitor:                        primary

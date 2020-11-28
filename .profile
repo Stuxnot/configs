@@ -17,6 +17,7 @@ export VISUAL="nvim"
 PATH=$PATH:/home/heartbleed/bin
 export PATH
 
+# Make ssh-agent pid accesible
 eval $(ssh-agent)
 
 # configure qt to use correct theme settings
@@ -35,7 +36,6 @@ if [[ $HOST = 'kronos' ]]; then
 elif [[ $HOST = 'hyperion' ]]; then
     export MONITOR=DisplayPort-0
     export SIDE_MONITOR=HDMI-A-0
-
 fi
 # Hack:
 # Set scale factor for alacritty, since it sometimes ignores the xrandr settings

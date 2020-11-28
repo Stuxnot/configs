@@ -75,6 +75,9 @@ if [[ $TERM != 'linux' ]]; then
         source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
     fi
 
+    source /usr/share/fzf/completion.zsh
+    source /usr/share/fzf/key-bindings.zsh
+
     [[ ! -f ~/.config/zsh/p10k.zsh ]] || source $HOME/.config/zsh/p10k.zsh
 
     ###############################
@@ -90,13 +93,13 @@ if [[ $TERM != 'linux' ]]; then
     zplug "plugins/git",                        from:oh-my-zsh
     zplug "plugins/command-not-found",          from:oh-my-zsh
     zplug "plugins/adb",                        from:oh-my-zsh
-    zplug "plugins/common-aliases",             from:oh-my-zsh
+    # zplug "plugins/common-aliases",             from:oh-my-zsh 
 
     # Plugins
     zplug "b4b4r07/enhancd",                    use:init.sh
     zplug "zsh-users/zsh-syntax-highlighting",  defer:2
     zplug "zsh-users/zsh-completions"
-    zplug "zsh-users/zsh-autosuggestions"
+    # zplug "zsh-users/zsh-autosuggestions"
 
     # zplug "softmoth/zsh-vim-mode"
 

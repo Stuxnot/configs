@@ -1,8 +1,8 @@
-#        __                       __ 
+#        __                       __
 #   ___ / /___ ____ __ ___  ___  / /_
 #  (_-</ __/ // /\ \ // _ \/ _ \/ __/
-# /___/\__/\_,_//_\_\/_//_/\___/\__/ 
-# https://github.com/stuxnot                                   
+# /___/\__/\_,_//_\_\/_//_/\___/\__/
+# https://github.com/stuxnot
 
 [colors]
 background = #222
@@ -12,6 +12,10 @@ foreground-alt = #888
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
+blue = #83a5a8
+green = #83a598
+yellow = #fabd2f
+
 
 [bar/main]
 monitor = ${env:MONITOR}
@@ -36,8 +40,8 @@ padding = 1
 module-margin = 1
 
 modules-left = date bspwm xwindow
-modules-center = 
-modules-right = volume cpu 
+modules-center =
+modules-right = cpu
 
 wm-restack = bspwm
 
@@ -50,7 +54,7 @@ font-2 = RobotoMono Nerd Font:size=18;1
 font-3 = RobotoMono Nerd Font:size=18;1
 
 modules-left = date bspwm xwindow
-modules-right = volume cpu temp_desktop
+modules-right = cpu temp_desktop
 
 tray-position = right
 tray-padding = 2
@@ -60,10 +64,10 @@ tray-maxsize = 24
 inherit = bar/main
 monitor = ${env:SIDE_MONITOR}
 
-height = 3.5%
+height = 2.0%
 
 modules-left = date bspwm xwindowside
-modules-right = volume cpu 
+modules-right = cpu
 
 [bar/laptop]
 inherit = bar/main
@@ -78,7 +82,7 @@ font-2 = RobotoMono Nerd Font:size=15;1
 font-3 = RobotoMono Nerd Font:size=15;1
 
 modules-left = date bspwm xwindowlaptop
-modules-right = volume battery cpu temp_laptop
+modules-right = battery cpu temp_laptop
 
 tray-position = right
 tray-padding = 2
@@ -106,17 +110,16 @@ enable-click = false
 enable-scroll = false
 
 label-dimmed-focused = " %name% "
-label-dimmed-focused-focused = #ffaa00
 label-dimmed-focused-underline = ${colors.background}
 
 label-focused = " %name% "
-label-focused-underline = #fba922
+label-focused-underline = ${colors.blue}
 
 label-occupied = " %name% "
-label-occupied-foreground = #ffaa00
+label-occupied-foreground = ${colors.blue}
 
 label-urgent = " %name% "
-label-urgent-underline = #9b0a20
+label-urgent-underline = ${colors.alert}
 
 label-empty = " %name% "
 label-empty-foreground = #555555
@@ -126,10 +129,10 @@ type = internal/temperature
 
 warn-temperature = 60
 
-thermal-zone = 0 
+thermal-zone = 0
 
-format-underline = #115511
-label-warn-underline = #f900
+format-underline = ${colors.green}
+label-warn-underline = ${colors.alert}
 
 [module/temp_laptop]
 inherit = module/temperature
@@ -179,28 +182,12 @@ animation-charging-4 = ""
 ; Framerate in milliseconds
 animation-charging-framerate = 750
 
-[module/volume]
-type = internal/alsa
-
-format-volume = <ramp-volume> <label-volume>
-format-volume-padding = 1
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-ramp-volume-3 = 
-ramp-volume-foreground = ${colors.foreground}
-
-format-muted-prefix = " "
-format-muted-underline = #f90000
-label-muted = MUTED
-format-muted-padding = 1
-
 [module/cpu]
 type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #fba922
+format-underline = ${colors.yellow}
 label = %percentage:2%%
 
 [settings]

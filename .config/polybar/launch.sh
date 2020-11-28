@@ -5,9 +5,9 @@ killall -q polybar
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-if [[ $(hostname) = 'hyperion' ]]; then
+if [[ $(cat /etc/hostname) = 'hyperion' ]]; then
     exec polybar --reload desktop &
-elif [[ $(hostname) = 'kronos' ]]; then
+elif [[ $(cat /etc/hostname) = 'kronos' ]]; then
     exec polybar --reload laptop &
 else
     exec polybar --reload main &

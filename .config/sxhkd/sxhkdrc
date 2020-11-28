@@ -10,6 +10,9 @@ super + Return
 super + d
     rofi -show drun
 
+super + shift + d
+    rofi -show window
+
 super + plus
     ~/bin/rofi_configs.sh
 
@@ -28,6 +31,12 @@ super + x
 
 super + shift + x
     systemctl hibernate
+
+super + m
+    alacritty -e spt -t 16
+
+super + shift + m
+    systemctl --user restart spotifyd.service
 
 #
 # bspwm hotkeys
@@ -100,9 +109,9 @@ super + {o,i}
 
 # focus or send to the given desktop
 super + {_,shift + }{1-5}
-    bspc {desktop -f,node -d} '^{6-9,10}'
-super + mod5 + {_,shift + }{1-5}
-    bspc {desktop -f,node -d} '^{1-5}'
+    bspc {desktop -f,node -d} '^{7-9,10,11}'
+super + mod5 + {_,shift + }{1-6}
+    bspc {desktop -f,node -d} '^{1-6}'
 
 #
 # preselect
@@ -146,13 +155,6 @@ XF86Audio{Lower,Raise}Volume
 
 XF86AudioMute 
     pactl set-sink-mute @DEFAULT_SINK@ toggle
-
-XF86AudioPlay
-    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
-XF86AudioPrev
-    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
-XF86AudioNext
-    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 
 XF86MonBrightness{Down,Up}
     xbacklight -{dec,inc} 10

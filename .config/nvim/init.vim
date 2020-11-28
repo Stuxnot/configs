@@ -42,18 +42,18 @@ set nobackup
 set nowb
 set noswapfile
 
-" Use tabs instead of spaces
+" Use spaces instead of tabs 
 set expandtab
 
 " Be smart when using tabs ;)
-" set smarttab
+set smarttab
 
 " 1 tab == 2 spaces
 set shiftwidth=4
 set tabstop=4
 
 " Linebreak on 500 characters
-" set lbr
+set nolbr
 set tw=500
 
 set ai "Auto indent
@@ -91,6 +91,7 @@ endtry
 " Plug-In 
 "
 " #############################
+if !exists('g:vscode')
 call plug#begin('~/.config/nvim/plugged')
 
     " ###
@@ -127,11 +128,9 @@ call plug#begin('~/.config/nvim/plugged')
 
     " Syntactic language support
     Plug 'rust-lang/rust.vim'
-    " Plug 'lervag/vimtex'
+    Plug 'lervag/vimtex'
     Plug 'baskerville/vim-sxhkdrc'
-
-    " function analyzer
-    Plug 'liuchengxu/vista.vim'
+    Plug 'rhysd/vim-clang-format'
 
     Plug 'rhysd/vim-clang-format'
 
@@ -139,7 +138,6 @@ call plug#end()
 
 " vim-matchup 
 let g:loaded_matchit = 1
-
 
 " rooter settings
 let g:rooter_patterns = ['!Makefile']
@@ -153,6 +151,9 @@ let g:lightline = {
             \   'gitbranch': 'FugitiveHead'
             \ },       
             \ }
+
+
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
 
 " airline settings
 " let g:airline_powerline_fonts = 1
@@ -186,6 +187,7 @@ command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
                                 \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
+endif
 set updatetime=300
 
 " #############################
@@ -215,14 +217,14 @@ inoremap <right> <nop>
 nnoremap <left> :bp<CR>
 nnoremap <right> :bn<CR>
 
-" vista
-map <leader>v :Vista!!<cr>
-
+if !exists('g:vscode')
 " use gd, gy to jump to definitions
 nmap <silent>gd <Plug>(coc-definition)
 nmap <silent>gy <Plug>(coc-type-definition)
 nmap <silent>gi <Plug>(coc-implementation)
 nmap <silent>gr <Plug>(coc-references)
+nmap <leader>[  <Plug>(coc-diagnostic-prev)
+nmap <leader>]  <Plug>(coc-diagnostic-next)
 
 " Use <c-.> to trigger completion.
 inoremap <silent><expr> <c-r> coc#refresh()
@@ -241,6 +243,7 @@ map <C-p> :Files<Cr>
 nmap <leader>; :Buffer<Cr>
 
 nmap <localleader>lt :call vimtex#fzf#run()<cr>
+endif
 
 " better copy and pasting to/from buffers
 vmap <leader>y "+y
@@ -310,6 +313,9 @@ map <leader>sp [s
 map <leader>sa zg
 map <leader>s? z=
 
+if !exists('g:vscode')
+nmap <leader>fc :ClangFormat<Cr>
+endif
 
 " #############################
 "
@@ -399,10 +405,11 @@ endfun
 command! -nargs=0 CleanSpaces call CleanExtraSpaces()
 if has("autocmd")
     autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee,*.tex :call CleanExtraSpaces()
+    " TODO: undo
+    autocmd BufWritePre *.h,*.cpp,*.c :ClangFormat
+
     " Autocompile .Xresources
     autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
-    " restart compton after editing
-    autocmd BufWritePost compton.conf !killall compton && (compton &)
 endif
 
 " #############################
@@ -438,7 +445,7 @@ set nofoldenable
 set background=dark
 colorscheme base16-gruvbox-dark-hard
 let base16colorspace=256
-highlight Normal ctermbg=None
+hi! Normal ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
 
 " Always show the status line
 set laststatus=2

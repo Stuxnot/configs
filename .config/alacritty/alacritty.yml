@@ -111,7 +111,7 @@ bell:
   duration: 0
 
 # Background opacity
-background_opacity: 1.0
+background_opacity: 0.85
 
 # Allow terminal applications to change Alacritty's window title.
 window.dynamic_title: true
@@ -155,6 +155,3 @@ debug:
 
 key_bindings:
     - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
-    - { key: U, mods: Control|Shift, action: ScrollPageUp }
-    - { key: D, mods: Control|Shift, action: ScrollPageDown }
-    - { key: G, mods: Control|Shift, action: ScrollToBottom }
