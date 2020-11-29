@@ -20,9 +20,6 @@ super + plus
 super + shift + r
     pkill -USR1 -x sxhkd
 
-super + m
-    alacritty -e spt
-
 super + e
     alacritty -e ranger
 
