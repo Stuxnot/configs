@@ -23,6 +23,10 @@ eval $(ssh-agent)
 # configure qt to use correct theme settings
 [ "$XDG_CURRENT_DESKTOP" = "KDE" ] || [ "$XDG_CURRENT_DESKTOP" = "GNOME" ] || export QT_QPA_PLATFORMTHEME="qt5ct"
 
+# export QT_SCALE_FACTOR=1.6
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 # Set monitor depending on hostname.
 HOST=$(cat /etc/hostname)
 if [[ $HOST = 'kronos' ]]; then
@@ -31,12 +35,12 @@ if [[ $HOST = 'kronos' ]]; then
     if [[ ! -z "$connectedSecondary" ]]; then
         export MONITOR="$connectedSecondary"
         xrandr --output eDP1 --off --output $connectedSecondary --primary 
-        export WINIT_X11_SCALE_FACTOR=1.6
     fi
 elif [[ $HOST = 'hyperion' ]]; then
     export MONITOR=DisplayPort-0
     export SIDE_MONITOR=HDMI-A-0
 fi
+
 # Hack:
 # Set scale factor for alacritty, since it sometimes ignores the xrandr settings
-export WINIT_X11_SCALE_FACTOR=1.6
+export WINIT_X11_SCALE_FACTOR=1.2

@@ -36,7 +36,7 @@ case "$choice" in
 		choice="$HOME/.config/sxhkd/sxhkdrc"
 	;;
 	rofi)
-		choice="$HOME/.config/rofi/config"
+		choice="$HOME/.config/rofi/config.rasi"
 	;;
 	dunst)
 		choice="$HOME/.config/dunst/dunstrc"

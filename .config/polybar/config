@@ -20,10 +20,10 @@ yellow = #fabd2f
 [bar/main]
 monitor = ${env:MONITOR}
 
-font-0 = RobotoMono Nerd Font:size=14;1
-font-1 = RobotoMono Nerd Font:size=14;1
-font-2 = RobotoMono Nerd Font:size=14;1
-font-3 = RobotoMono Nerd Font:size=14;1
+font-0 = RobotoMono Nerd Font:size=13;1
+font-1 = RobotoMono Nerd Font:size=13;1
+font-2 = RobotoMono Nerd Font:size=13;1
+font-3 = RobotoMono Nerd Font:size=13;1
 
 width = 100%
 height = 2.5%
@@ -48,11 +48,6 @@ wm-restack = bspwm
 [bar/desktop]
 inherit = bar/main
 
-font-0 = RobotoMono Nerd Font:size=18;1
-font-1 = RobotoMono Nerd Font:size=18;1
-font-2 = RobotoMono Nerd Font:size=18;1
-font-3 = RobotoMono Nerd Font:size=18;1
-
 modules-left = date bspwm xwindow
 modules-right = cpu temp_desktop
 
@@ -64,10 +59,15 @@ tray-maxsize = 24
 inherit = bar/main
 monitor = ${env:SIDE_MONITOR}
 
-height = 2.0%
+height = 1.8%
 
 modules-left = date bspwm xwindowside
 modules-right = cpu
+
+font-0 = RobotoMono Nerd Font:size=11;1
+font-1 = RobotoMono Nerd Font:size=11;1
+font-2 = RobotoMono Nerd Font:size=11;1
+font-3 = RobotoMono Nerd Font:size=11;1
 
 [bar/laptop]
 inherit = bar/main
@@ -96,7 +96,7 @@ label = %title:0:80:...%
 
 [module/xwindowside]
 inherit = module/xwindow
-label = %title:0:30:...%
+label = %title:0:40:...%
 
 [module/xwindowlaptop]
 inherit = module/xwindow

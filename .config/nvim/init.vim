@@ -48,7 +48,7 @@ set expandtab
 " Be smart when using tabs ;)
 set smarttab
 
-" 1 tab == 2 spaces
+" 1 tab == 4 spaces
 set shiftwidth=4
 set tabstop=4
 
@@ -130,10 +130,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'rust-lang/rust.vim'
     Plug 'lervag/vimtex'
     Plug 'baskerville/vim-sxhkdrc'
-    Plug 'rhysd/vim-clang-format'
 
-    Plug 'rhysd/vim-clang-format'
-
+    Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 
 " vim-matchup 
@@ -218,6 +216,7 @@ nnoremap <left> :bp<CR>
 nnoremap <right> :bn<CR>
 
 if !exists('g:vscode')
+
 " use gd, gy to jump to definitions
 nmap <silent>gd <Plug>(coc-definition)
 nmap <silent>gy <Plug>(coc-type-definition)
@@ -313,10 +312,6 @@ map <leader>sp [s
 map <leader>sa zg
 map <leader>s? z=
 
-if !exists('g:vscode')
-nmap <leader>fc :ClangFormat<Cr>
-endif
-
 " #############################
 "
 " Editor
@@ -405,8 +400,8 @@ endfun
 command! -nargs=0 CleanSpaces call CleanExtraSpaces()
 if has("autocmd")
     autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee,*.tex :call CleanExtraSpaces()
-    " TODO: undo
-    autocmd BufWritePre *.h,*.cpp,*.c :ClangFormat
+
+    autocmd BufWritePre *.rs :RustFmt
 
     " Autocompile .Xresources
     autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
@@ -420,6 +415,12 @@ endif
 
 " Enable syntax highlighting
 syntax on
+
+" Doxygen highlighting for C++
+augroup cpp_mine
+    au!
+    autocmd BufNewFile,BufRead *.cpp,*.hpp set syntax=cpp.doxygen
+augroup END
 
 " Enable 256 colors palette in Gnome Terminal
 if $COLORTERM == 'gnome-terminal'

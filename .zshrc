@@ -96,7 +96,7 @@ if [[ $TERM != 'linux' ]]; then
     # zplug "plugins/common-aliases",             from:oh-my-zsh 
 
     # Plugins
-    zplug "b4b4r07/enhancd",                    use:init.sh
+    # zplug "b4b4r07/enhancd",                    use:init.sh
     zplug "zsh-users/zsh-syntax-highlighting",  defer:2
     zplug "zsh-users/zsh-completions"
     # zplug "zsh-users/zsh-autosuggestions"
