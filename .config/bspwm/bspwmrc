@@ -60,7 +60,7 @@ bspc rule -a strawberry desktop='^3' follow=on
 
 sxhkd &
 
-[[ -z "$(pidof picom)" ]] && picom &
+[[ -z "$(pidof picom)" && "$(cat /etc/hostname)" = "hyperion" ]] && picom &
 
 [[ -z "$(pidof blueman-applet)" ]] && blueman-applet &
 
