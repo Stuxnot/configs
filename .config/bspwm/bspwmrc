@@ -57,33 +57,38 @@ bspc rule -a strawberry desktop='^3' follow=on
 # Autostart
 #
 ###############################
+HOST=$(cat /etc/hostname)
 
 sxhkd &
 
-[[ -z "$(pidof picom)" && "$(cat /etc/hostname)" = "hyperion" ]] && picom &
+[[ -z "$MONITOR" ]] || $HOME/.config/polybar/launch.sh
+
+# Hide the mouse pointer after 5 seconds and ignore small mouse changes.
+[[ -z "$(pidof unclutter)" ]] && unclutter -jitter 100 &
+
+## applets ##
 
 [[ -z "$(pidof blueman-applet)" ]] && blueman-applet &
-
-if [[ "$(hostname)" = "kronos" ]]; then
-    [[ -z "$(pidof nm-applet)" ]] && nm-applet &
-fi
-
-# Set caps_lock as escape and enable umlaute.
-# xmodmap -e 'clear Lock' $HOME/.Xmodmap
 
 [[ -z "$(pidof pasystray)" ]] && pasystray &
 
-[[ -z "$(pidof unclutter)" ]] && unclutter -jitter 100 &
+
+if [[ "$HOST" = "kronos" ]]; then
+    [[ -z "$(pidof nm-applet)" ]] && nm-applet &
+fi
+
+if [[ "$HOST" = "hyperion" ]]; then
+    [[ -z "$(pidof picom)" ]] && picom &
+
+    liquidctl --match nzxt initialize && liquidctl --match nzxt set sync speed 30
+
+    feh --bg-center $HOME/img/wallpaper/planetary_1.png $HOME/img/wallpaper/planetary_2.png
+fi
 
 [[ -z "$(pidof keepassxc)" ]] && keepassxc &
 
-[[ -z "$(pidof blueman-applet)" ]] && blueman-applet &
-
-# Set background via feh
-feh --bg-center $HOME/img/wallpaper/planetary_1.png $HOME/img/wallpaper/planetary_2.png
-
-[[ -z "$MONITOR" ]] || $HOME/.config/polybar/launch.sh
-
-[[ "$(cat /etc/hostname)" = "hyperion" ]] && liquidctl --match nzxt initialize && liquidctl --match nzxt set sync speed 30
-
+# Fix for bspwm + java
 wmname LG3D
+
+# Set caps_lock as escape and enable umlaute.
+# xmodmap -e 'clear Lock' $HOME/.Xmodmap
