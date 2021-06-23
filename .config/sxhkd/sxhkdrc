@@ -10,7 +10,7 @@ super + Return
 mod5 + d
     rofi -show drun
 
-mod5 + shift + d
+mod5 + a
     rofi -show window
 
 super + plus
