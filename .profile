@@ -18,7 +18,7 @@ PATH=$PATH:/home/heartbleed/bin
 export PATH
 
 # Make ssh-agent pid accesible
-eval $(ssh-agent)
+[[ -z "$(pidof ssh-agent)" ]] && eval $(ssh-agent)
 
 # configure qt to use correct theme settings
 [ "$XDG_CURRENT_DESKTOP" = "KDE" ] || [ "$XDG_CURRENT_DESKTOP" = "GNOME" ] || export QT_QPA_PLATFORMTHEME="qt5ct"
