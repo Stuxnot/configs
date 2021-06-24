@@ -7,34 +7,59 @@
  */
 
 * {
-    red:                         rgba ( 251, 73, 52, 100 % );
-    blue:                        rgba ( 131, 165, 152, 100 % );
-    lightfg:                     rgba ( 235, 219, 178, 100 % );
-    lightbg:                     rgba ( 60, 56, 54, 100 % );
-    foreground:                  rgba ( 213, 196, 161, 100 % );
-    background:                  rgba ( 29, 32, 33, 100 % );
-    background-color:            rgba ( 29, 32, 33, 0 % );
-    separatorcolor:              @foreground;
-    border-color:                @foreground;
-    selected-normal-foreground:  @lightbg;
-    selected-normal-background:  @lightfg;
-    selected-active-foreground:  @background;
-    selected-active-background:  @blue;
-    selected-urgent-foreground:  @background;
-    selected-urgent-background:  @red;
-    normal-foreground:           @foreground;
-    normal-background:           @background;
-    active-foreground:           @blue;
-    active-background:           @background;
-    urgent-foreground:           @red;
-    urgent-background:           @background;
-    alternate-normal-foreground: @foreground;
-    alternate-normal-background: @lightbg;
-    alternate-active-foreground: @blue;
-    alternate-active-background: @lightbg;
-    alternate-urgent-foreground: @red;
-    alternate-urgent-background: @lightbg;
-    spacing:                     2;
+    red:                              rgba ( 251, 73, 52, 85 % );
+    blue:                             rgba ( 131, 165, 152, 85 % );
+    lightfg:                          rgba ( 235, 219, 178, 85 % );
+    lightbg:                          rgba ( 60, 56, 54, 85 % );
+    foreground:                       rgba ( 213, 196, 161, 85 % );
+    background:                       rgba ( 29, 32, 33, 85 % );
+    text-red:                         rgba ( 251, 73, 52, 100 % );
+    text-blue:                        rgba ( 131, 165, 152, 100 % );
+    text-purple:                      rgba ( 211, 134, 155, 100 % );
+    text-lightfg:                     rgba ( 235, 219, 178, 100 % );
+    text-lightbg:                     rgba ( 60, 56, 54, 100 % );
+    text-foreground:                  rgba ( 213, 196, 161, 100 % );
+    text-background:                  rgba ( 29, 32, 33, 100 % );
+    background-color:                 rgba ( 29, 32, 33, 0 % );
+    separatorcolor:                   @foreground;
+    border-color:                     @foreground;
+    selected-normal-foreground:       @lightbg;
+    selected-normal-background:       @lightfg;
+    selected-active-foreground:       @background;
+    selected-active-background:       @blue;
+    selected-urgent-foreground:       @background;
+    selected-urgent-background:       @red;
+    normal-foreground:                @foreground;
+    normal-background:                @background;
+    active-foreground:                @blue;
+    active-background:                @background;
+    urgent-foreground:                @red;
+    urgent-background:                @background;
+    alternate-normal-foreground:      @foreground;
+    alternate-normal-background:      @lightbg;
+    alternate-active-foreground:      @blue;
+    alternate-active-background:      @lightbg;
+    alternate-urgent-foreground:      @red;
+    alternate-urgent-background:      @lightbg;
+    text-selected-normal-foreground:  @text-blue;
+    text-selected-normal-background:  @text-lightfg;
+    text-selected-active-foreground:  @text-background;
+    text-selected-active-background:  @text-blue;
+    text-selected-urgent-foreground:  @text-background;
+    text-selected-urgent-background:  @text-red;
+    text-normal-foreground:           @text-foreground;
+    text-normal-background:           @text-background;
+    text-active-foreground:           @text-purple;
+    text-active-background:           @text-background;
+    text-urgent-foreground:           @text-red;
+    text-urgent-background:           @text-background;
+    text-alternate-normal-foreground: @text-foreground;
+    text-alternate-normal-background: @text-lightbg;
+    text-alternate-active-foreground: @text-blue;
+    text-alternate-active-background: @text-lightbg;
+    text-alternate-urgent-foreground: @text-red;
+    text-alternate-urgent-background: @text-lightbg;
+    spacing:                          2;
 }
 window {
     background-color: @background;
@@ -50,7 +75,7 @@ message {
     padding:          1px ;
 }
 textbox {
-    text-color:       @foreground;
+    text-color:       @text-foreground;
 }
 listview {
     fixed-height:     0;
@@ -64,40 +89,31 @@ element {
     padding:          1px ;
 }
 element normal.normal {
-    background-color: @normal-background;
-    text-color:       @normal-foreground;
+    text-color:       @text-normal-foreground;
 }
 element normal.urgent {
-    background-color: @urgent-background;
-    text-color:       @urgent-foreground;
+    text-color:       @text-urgent-foreground;
 }
 element normal.active {
-    background-color: @active-background;
-    text-color:       @active-foreground;
+    text-color:       @text-active-foreground;
 }
 element selected.normal {
-    background-color: @selected-normal-background;
-    text-color:       @selected-normal-foreground;
+    text-color:       @text-selected-normal-foreground;
 }
 element selected.urgent {
-    background-color: @selected-urgent-background;
-    text-color:       @selected-urgent-foreground;
+    text-color:       @text-selected-urgent-foreground;
 }
 element selected.active {
-    background-color: @selected-active-background;
-    text-color:       @selected-active-foreground;
+    text-color:       @text-selected-active-foreground;
 }
 element alternate.normal {
-    background-color: @normal-background;
-    text-color:       @normal-foreground;
+    text-color:       @text-normal-foreground;
 }
 element alternate.urgent {
-    background-color: @alternate-urgent-background;
-    text-color:       @alternate-urgent-foreground;
+    text-color:       @text-alternate-urgent-foreground;
 }
 element alternate.active {
-    background-color: @alternate-active-background;
-    text-color:       @alternate-active-foreground;
+    text-color:       @text-alternate-active-foreground;
 }
 scrollbar {
     width:            4px ;
@@ -112,29 +128,29 @@ sidebar {
 }
 button {
     spacing:          0;
-    text-color:       @normal-foreground;
+    text-color:       @text-normal-foreground;
 }
 button selected {
     background-color: @selected-normal-background;
-    text-color:       @selected-normal-foreground;
+    text-color:       @text-selected-normal-foreground;
 }
 inputbar {
     spacing:          0px;
-    text-color:       @normal-foreground;
+    text-color:       @text-normal-foreground;
     padding:          1px ;
     children:         [ prompt,textbox-prompt-colon,entry,case-indicator ];
 }
 case-indicator {
     spacing:          0;
-    text-color:       @normal-foreground;
+    text-color:       @text-normal-foreground;
 }
 entry {
     spacing:          0;
-    text-color:       @normal-foreground;
+    text-color:       @text-normal-foreground;
 }
 prompt {
     spacing:          0;
-    text-color:       @normal-foreground;
+    text-color:       @text-normal-foreground;
 }
 textbox-prompt-colon {
     expand:           false;
