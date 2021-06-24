@@ -18,6 +18,7 @@ rofi
 xresources
 zsh
 aliases
+profile
 quit")
 
 choice=$(echo -e "${options[@]}" | rofi -dmenu  -i -p 'Edit config file')
@@ -58,6 +59,9 @@ case "$choice" in
 	;;
     aliases)
         choice="$HOME/.config/zsh/aliases"
+    ;;
+    profile)
+        choice="$HOME/.profile"
     ;;
 	*)
 		exit 1
