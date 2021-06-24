@@ -1,73 +1,85 @@
-#        __                       __
-#   ___ / /___ ____ __ ___  ___  / /_
-#  (_-</ __/ // /\ \ // _ \/ _ \/ __/
-# /___/\__/\_,_//_\_\/_//_/\___/\__/
-# https://github.com/stuxnot
+; vim:ft=dosini
+;        __                       __
+;   ___ / /___ ____ __ ___  ___  / /_
+;  (_-</ __/ // /\ \ // _ \/ _ \/ __/
+; /___/\__/\_,_//_\_\/_//_/\___/\__/
+; https://github.com/stuxnot
 
 [colors]
-background = #222
+background = #a01d2021
+background-solid = #1d2021
 background-alt = #444
-foreground = #dfdfdf
+foreground = #d5c4a1
 foreground-alt = #888
 primary = #ffb52a
 secondary = #e60053
-alert = #bd2c40
-blue = #83a5a8
-green = #83a598
-yellow = #fabd2f
-
+alert = #60fb4934
+blue = #83a598
+blue-transparent = #a083a598
+green = #8ec07c
+green-transparent = #a08ec07c
+yellow = #ebcb8b
+yellow-transparent = #ebcb8b
+transparent = #000f0f0f
 
 [bar/main]
 monitor = ${env:MONITOR}
 
-font-0 = RobotoMono Nerd Font:size=13;1
-font-1 = RobotoMono Nerd Font:size=13;1
-font-2 = RobotoMono Nerd Font:size=13;1
-font-3 = RobotoMono Nerd Font:size=13;1
+font-0 = RobotoMono Nerd Font:size=12;1
+font-1 = RobotoMono Nerd Font:size=12;1
+font-2 = RobotoMono Nerd Font:size=12;1
+font-3 = RobotoMono Nerd Font:size=12;1
 
+dpi = 100
 width = 100%
-height = 2.5%
+height = 3.0%
+offset-x = 0%
 offset-y = 0%
-fixed-center = false
+
 bottom = true
 
-background = ${colors.background}
+background = ${colors.transparent}
 foreground = ${colors.foreground}
 
-border-size = 0
+;border-size = 0
 line-size = 2
-padding = 1
-module-margin = 1
+;padding = 1
+;module-margin = 1
 
-modules-left = date bspwm xwindow
-modules-center =
-modules-right = cpu
+spacing = 0
+padding-left = 2
+padding-right = 4
+module-margin-left = 0
+
+border-top-size = 0
+border-bottom-size = 7
+border-bottom-color = ${colors.transparent}
+
+modules-left = date padding bspwm 
+modules-center = 
+modules-right = volume
 
 wm-restack = bspwm
 
 [bar/desktop]
 inherit = bar/main
 
-modules-left = date bspwm xwindow
-modules-right = cpu temp_desktop
+modules-right = temp_desktop volume
 
-tray-position = right
-tray-padding = 2
-tray-maxsize = 24
+fixed-center = true
 
 [bar/side]
 inherit = bar/main
 monitor = ${env:SIDE_MONITOR}
 
-height = 1.8%
+height = 2.2%
 
-modules-left = date bspwm xwindowside
-modules-right = cpu
+font-0 = RobotoMono Nerd Font:size=10;1
+font-1 = RobotoMono Nerd Font:size=10;1
+font-2 = RobotoMono Nerd Font:size=10;1
+font-3 = RobotoMono Nerd Font:size=10;1
 
-font-0 = RobotoMono Nerd Font:size=11;1
-font-1 = RobotoMono Nerd Font:size=11;1
-font-2 = RobotoMono Nerd Font:size=11;1
-font-3 = RobotoMono Nerd Font:size=11;1
+modules-right =
 
 [bar/laptop]
 inherit = bar/main
@@ -81,20 +93,15 @@ font-1 = RobotoMono Nerd Font:size=11;1
 font-2 = RobotoMono Nerd Font:size=11;1
 font-3 = RobotoMono Nerd Font:size=11;1
 
-modules-left = date bspwm xwindowlaptop
-modules-right = battery cpu temp_laptop
-
-tray-position = right
-tray-padding = 2
-tray-maxsize = 24
+modules-left = date bspwm
+modules-right = battery padding temp_laptop padding
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:80:...%
-
-[module/xwindowside]
-inherit = module/xwindow
-label = %title:0:40:...%
+label = "%title:0:80:...%"
+label-background = ${colors.background}
+label-padding = 2
+label-empty-padding = 2
 
 [module/xwindowlaptop]
 inherit = module/xwindow
@@ -104,23 +111,33 @@ label = %title:0:40:...%
 # credit: https://github.com/jonhoo/configs
 type = internal/bspwm
 pin-workspaces = true
-enable-click = false
+
+enable-click = true
 enable-scroll = false
 
-label-dimmed-focused = " %name% "
-label-dimmed-focused-underline = ${colors.background}
+label-focused = "%name%"
+label-focused-foreground = ${colors.background-solid}
+label-focused-background = ${colors.green-transparent}
+label-focused-padding = 2
 
-label-focused = " %name% "
-label-focused-underline = ${colors.blue}
+label-dimmed-focused = "%name%"
+label-dimmed-focused-foreground = ${colors.blue}
+label-dimmed-focused-background = ${colors.background}
+label-dimmed-focused-padding = 2
 
-label-occupied = " %name% "
-label-occupied-foreground = ${colors.blue}
+label-occupied = "%name%"
+label-occupied-foreground = ${colors.green}
+label-occupied-background = ${colors.background}
+label-occupied-padding = 2
 
-label-urgent = " %name% "
-label-urgent-underline = ${colors.alert}
+label-urgent = "%name%"
+label-urgent-foreground = ${colors.alert}
+label-urgent-padding = 2
 
-label-empty = " %name% "
-label-empty-foreground = #555555
+label-empty = "%name%"
+label-empty-foreground = #b6b6b6
+label-empty-background = ${colors.background}
+label-empty-padding = 2
 
 [module/temperature]
 type = internal/temperature
@@ -129,8 +146,13 @@ warn-temperature = 60
 
 thermal-zone = 0
 
-format-underline = ${colors.green}
-label-warn-underline = ${colors.alert}
+format-background = ${colors.background}
+format-foreground = ${colors.yellow}
+format-padding = 2
+
+label-warn-background = ${colors.alert}
+label-warn-foreground = ${colors.background-solid}
+label-warn-padding = 2
 
 [module/temp_laptop]
 inherit = module/temperature
@@ -142,14 +164,19 @@ hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp3_input
 
 [module/date]
 type = internal/date
-interval = 5
+interval = 1
 
+time = "%H:%M"
 date = "%a %d"
-time = %H:%M
+label = "%date% | %time%"
+
+format = <label>
+format-padding = 0
+
+label-background = ${colors.background}
+label-padding = 2
 
 format-prefix-foreground = ${colors.foreground-alt}
-
-label = %date% %time%
 
 [module/battery]
 type = internal/battery
@@ -158,8 +185,8 @@ battery = BAT0
 adapter = AC
 
 format-charging = "<animation-charging>  <label-charging>"
-
 format-discharging = "<ramp-capacity>  <label-discharging>"
+format-full = "<ramp-capacity-4> <label-charging>"
 
 ; Only applies if <ramp-capacity> is used
 ramp-capacity-0 = ""
@@ -180,13 +207,23 @@ animation-charging-4 = ""
 ; Framerate in milliseconds
 animation-charging-framerate = 750
 
-[module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.yellow}
-label = %percentage:2%%
+[module/volume]
+type = internal/pulseaudio
+
+format-volume = <label-volume>
+format-volume-foreground = ${colors.background-solid}
+format-volume-background = ${colors.green-transparent}
+format-volume-padding = 2
+
+label-muted = "muted"
+label-muted-background = ${colors.green-transparent}
+label-muted-foreground = ${colors.background-solid}
+label-muted-padding = 1
+
+[module/padding]
+type = custom/text
+content = "  "
+content-background = ${colors.transparent}
 
 [settings]
 screenchange-reload = true

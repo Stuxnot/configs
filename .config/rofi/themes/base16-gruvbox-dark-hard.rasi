@@ -15,6 +15,7 @@
     background:                       rgba ( 29, 32, 33, 85 % );
     text-red:                         rgba ( 251, 73, 52, 100 % );
     text-blue:                        rgba ( 131, 165, 152, 100 % );
+    text-green:                       rgba ( 142, 192, 124, 100 % );
     text-purple:                      rgba ( 211, 134, 155, 100 % );
     text-lightfg:                     rgba ( 235, 219, 178, 100 % );
     text-lightbg:                     rgba ( 60, 56, 54, 100 % );
@@ -41,7 +42,7 @@
     alternate-active-background:      @lightbg;
     alternate-urgent-foreground:      @red;
     alternate-urgent-background:      @lightbg;
-    text-selected-normal-foreground:  @text-blue;
+    text-selected-normal-foreground:  @text-green;
     text-selected-normal-background:  @text-lightfg;
     text-selected-active-foreground:  @text-background;
     text-selected-active-background:  @text-blue;

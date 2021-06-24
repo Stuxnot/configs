@@ -75,7 +75,6 @@ else
 fi
 
 if [[ "$HOST" = "hyperion" ]]; then
-    [[ -z "$(pidof blueman-applet)" ]] && blueman-applet &
     liquidctl --match nzxt initialize && liquidctl --match nzxt set sync speed 30
     feh --bg-center $HOME/img/wallpaper/planetary_1.png $HOME/img/wallpaper/planetary_2.png
 fi
