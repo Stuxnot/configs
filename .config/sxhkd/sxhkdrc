@@ -87,8 +87,11 @@ super + {_,shift + }{h,j,k,l}
     
 
 # focus the node for the given path jump
-super + {p,b,comma,period}
-    bspc node -f @{parent,brother,first,second}
+super + {p,comma,period}
+    bspc node -f @{parent,first,second}
+
+mod5 + b
+    bspc node -f @brother
 
 # focus the next/previous node in the current desktop
 mod5 + {_,shift + }c
