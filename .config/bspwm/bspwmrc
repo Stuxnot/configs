@@ -49,9 +49,6 @@ bspc rule -a Thunderbird desktop='^6' follow=on
 bspc rule -a Signal desktop='^5' follow=on
 bspc rule -a strawberry desktop='^3' follow=on
 
-[[ -z $(pidof sxhkd) ]] ||  killall sxhkd
-
-
 ###############################
 #
 # Autostart
@@ -59,7 +56,7 @@ bspc rule -a strawberry desktop='^3' follow=on
 ###############################
 HOST=$(cat /etc/hostname)
 
-sxhkd &
+[[ -z "$(pidof sxhkd)" ]] && sxhkd &
 
 [[ -z "$MONITOR" ]] || $HOME/.config/polybar/launch.sh
 
@@ -68,20 +65,18 @@ sxhkd &
 
 ## applets ##
 
-[[ -z "$(pidof blueman-applet)" ]] && blueman-applet &
-
 [[ -z "$(pidof pasystray)" ]] && pasystray &
-
 
 if [[ "$HOST" = "kronos" ]]; then
     [[ -z "$(pidof nm-applet)" ]] && nm-applet &
+    [[ -z "$(pidof blueman-applet)" ]] && blueman-applet &
+else
+    [[ -z "$(pidof picom)" ]] && picom &
 fi
 
 if [[ "$HOST" = "hyperion" ]]; then
-    [[ -z "$(pidof picom)" ]] && picom &
-
+    [[ -z "$(pidof blueman-applet)" ]] && blueman-applet &
     liquidctl --match nzxt initialize && liquidctl --match nzxt set sync speed 30
-
     feh --bg-center $HOME/img/wallpaper/planetary_1.png $HOME/img/wallpaper/planetary_2.png
 fi
 
