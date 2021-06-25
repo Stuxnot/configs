@@ -44,7 +44,7 @@
     alternate-urgent-background:      @lightbg;
     text-selected-normal-foreground:  @text-green;
     text-selected-normal-background:  @text-lightfg;
-    text-selected-active-foreground:  @text-background;
+    text-selected-active-foreground:  @text-blue;
     text-selected-active-background:  @text-blue;
     text-selected-urgent-foreground:  @text-background;
     text-selected-urgent-background:  @text-red;

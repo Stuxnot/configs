@@ -5,7 +5,7 @@ configuration {
 	columns: 1;
     monitor: "primary";
     theme: ".config/rofi/themes/base16-gruvbox-dark-hard.rasi";
-	font: "RobotoMono Nerd Font Mono 10";
+	font: "RobotoMono Nerd Font Mono 14";
 	bw: 5;
 	location: 0;
 	yoffset: 0;
@@ -20,7 +20,7 @@ configuration {
 	matching: "fuzzy";
 	separator-style: "none";
 	fullscreen: false;
-	dpi: 144;
+	dpi: 100;
 	scrollbar-width: 0;
 	kb-mode-next: "Shift+Right,Control+Tab,Alt+l";
 	kb-mode-previous: "Shift+Left,Control+Shift+Tab,Alt+h";
