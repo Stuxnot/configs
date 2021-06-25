@@ -13,13 +13,15 @@ foreground = #d5c4a1
 foreground-alt = #888
 primary = #ffb52a
 secondary = #e60053
-alert = #60fb4934
+alert = #c0fd6d5c
 blue = #83a598
 blue-transparent = #a083a598
 green = #8ec07c
 green-transparent = #a08ec07c
 yellow = #ebcb8b
 yellow-transparent = #ebcb8b
+purple = #a68390
+purple-transparent = #a0a68390
 transparent = #000f0f0f
 
 [bar/main]
@@ -39,7 +41,7 @@ offset-y = 0%
 bottom = true
 
 background = ${colors.transparent}
-foreground = ${colors.foreground}
+foreground = ${colors.yellow}
 
 ;border-size = 0
 line-size = 2
@@ -55,8 +57,8 @@ border-top-size = 0
 border-bottom-size = 7
 border-bottom-color = ${colors.transparent}
 
-modules-left = date padding bspwm 
-modules-center = 
+modules-left = date padding bspwm
+modules-center = xwindow
 modules-right = volume
 
 wm-restack = bspwm
@@ -79,6 +81,8 @@ font-1 = RobotoMono Nerd Font:size=10;1
 font-2 = RobotoMono Nerd Font:size=10;1
 font-3 = RobotoMono Nerd Font:size=10;1
 
+modules-left = date padding bspwm
+modules-center =
 modules-right =
 
 [bar/laptop]
@@ -99,9 +103,13 @@ modules-right = battery padding temp_laptop padding
 [module/xwindow]
 type = internal/xwindow
 label = "%title:0:80:...%"
-label-background = ${colors.background}
+label-foreground = ${colors.background-solid}
+label-background = ${colors.blue}
 label-padding = 2
+label-empty = "null"
 label-empty-padding = 2
+label-empty-foreground = ${colors.background-solid}
+label-empty-background = ${colors.blue}
 
 [module/xwindowlaptop]
 inherit = module/xwindow
@@ -117,7 +125,7 @@ enable-scroll = false
 
 label-focused = "%name%"
 label-focused-foreground = ${colors.background-solid}
-label-focused-background = ${colors.green-transparent}
+label-focused-background = ${colors.green}
 label-focused-padding = 2
 
 label-dimmed-focused = "%name%"
@@ -131,11 +139,12 @@ label-occupied-background = ${colors.background}
 label-occupied-padding = 2
 
 label-urgent = "%name%"
-label-urgent-foreground = ${colors.alert}
+label-urgent-foreground = ${colors.background-solid}
+label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
 label-empty = "%name%"
-label-empty-foreground = #b6b6b6
+label-empty-foreground = ${colors.yellow}
 label-empty-background = ${colors.background}
 label-empty-padding = 2
 
@@ -147,7 +156,6 @@ warn-temperature = 60
 thermal-zone = 0
 
 format-background = ${colors.background}
-format-foreground = ${colors.yellow}
 format-padding = 2
 
 label-warn-background = ${colors.alert}
@@ -173,10 +181,9 @@ label = "%date% | %time%"
 format = <label>
 format-padding = 0
 
+label-foreground = ${colors.yellow}
 label-background = ${colors.background}
 label-padding = 2
-
-format-prefix-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
@@ -210,13 +217,15 @@ animation-charging-framerate = 750
 [module/volume]
 type = internal/pulseaudio
 
+label-volume = %percentage:02:3%%
+
 format-volume = <label-volume>
 format-volume-foreground = ${colors.background-solid}
-format-volume-background = ${colors.green-transparent}
+format-volume-background = ${colors.purple}
 format-volume-padding = 2
 
 label-muted = "muted"
-label-muted-background = ${colors.green-transparent}
+label-muted-background = ${colors.purple}
 label-muted-foreground = ${colors.background-solid}
 label-muted-padding = 1
 
