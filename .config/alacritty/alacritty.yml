@@ -33,7 +33,7 @@ window:
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  history: 500
+  history: 1000
 
   # Number of lines the viewport will move for every line scrolled when
   # scrollback is enabled (history > 0).
@@ -41,7 +41,7 @@ scrolling:
 
 # Font configuration (changes require restart)
 font:
-  size: 12.0
+  size: 13.0
 
   normal:
     family: "RobotoMono Nerd Font Mono"
@@ -56,7 +56,7 @@ font:
     style: Italic
 
   offset:
-    x: -3
+    x: -2
     y: 0
 
 # If `true`, bold text is drawn using the bright color variants.
