@@ -28,44 +28,44 @@ case "$choice" in
 		echo "Program terminated." && exit 1
 	;;
 	alacritty)
-		choice="$HOME/.config/alacritty/alacritty.yml"
+        file="$HOME/.config/alacritty/alacritty.yml"
 	;;
 	bspwm)
-		choice="$HOME/.config/bspwm/bspwmrc"
+        file="$HOME/.config/bspwm/bspwmrc"
 	;;
 	sxhkd)
-		choice="$HOME/.config/sxhkd/sxhkdrc"
+        file="$HOME/.config/sxhkd/sxhkdrc"
 	;;
 	rofi)
-		choice="$HOME/.config/rofi/config.rasi"
+        file="$HOME/.config/rofi/config.rasi"
 	;;
 	dunst)
-		choice="$HOME/.config/dunst/dunstrc"
+        file="$HOME/.config/dunst/dunstrc"
 	;;
 	ranger)
-		choice="$HOME/.config/ranger/rc.conf"
+        file="$HOME/.config/ranger/rc.conf"
 	;;
 	nvim)
-		choice="$HOME/.config/nvim/init.vim"
+        file="$HOME/.config/nvim/init.vim"
 	;;
 	polybar)
-		choice="$HOME/.config/polybar/config"
+        file="$HOME/.config/polybar/config"
 	;;
 	xresources)
-		choice="$HOME/.Xresources"
+        file="$HOME/.Xresources"
 	;;
 	zsh)
-		choice="$HOME/.zshrc"
+        file="$HOME/.zshrc"
 	;;
     aliases)
-        choice="$HOME/.config/zsh/aliases"
+        file="$HOME/.config/zsh/aliases"
     ;;
     profile)
-        choice="$HOME/.profile"
+        file="$HOME/.profile"
     ;;
 	*)
 		exit 1
 	;;
 esac
 
-alacritty -e nvim "$choice"
+alacritty -t "vim $choice" -e nvim "$file"
