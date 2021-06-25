@@ -65,8 +65,6 @@ HOST=$(cat /etc/hostname)
 
 ## applets ##
 
-[[ -z "$(pidof pasystray)" ]] && pasystray &
-
 if [[ "$HOST" = "kronos" ]]; then
     [[ -z "$(pidof nm-applet)" ]] && nm-applet &
     [[ -z "$(pidof blueman-applet)" ]] && blueman-applet &
@@ -85,4 +83,4 @@ fi
 wmname LG3D
 
 # Set caps_lock as escape and enable umlaute.
-# xmodmap -e 'clear Lock' $HOME/.Xmodmap
+xmodmap $HOME/.Xmodmap
